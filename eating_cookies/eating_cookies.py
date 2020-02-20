@@ -19,11 +19,6 @@ def eating_cookies(n, cache=None):
     else:
         return eating_cookies(n-3) + eating_cookies(n-2) + eating_cookies(n-1)
 
-    # cycle through actions and subtract n by each action
-    # once not divisible by 3, divide by 2, etc, then subtract 1 until 0
-    # increment counter
-    # return counter
-
 
 print(eating_cookies(10))
 
