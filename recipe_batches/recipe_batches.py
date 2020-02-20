@@ -4,8 +4,14 @@ import math
 
 
 def recipe_batches(recipe, ingredients):
-    for i in range(0, len(recipe)-1):
-        print(recipe[i])
+    max = 1000
+    for item in recipe:
+        if item in ingredients:
+            if (ingredients[f'{item}'] // recipe[f'{item}']) < max:
+                max = (ingredients[f'{item}'] // recipe[f'{item}'])
+        else:
+            return 0
+    return max
 
 
 ex_recipe = {'milk': 100, 'flour': 4, 'sugar': 10, 'butter': 5}
