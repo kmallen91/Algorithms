@@ -4,7 +4,7 @@ import math
 
 
 def recipe_batches(recipe, ingredients):
-    max = 1000
+    max = float('inf')
     for item in recipe:
         if item in ingredients:
             if (ingredients[f'{item}'] // recipe[f'{item}']) < max:

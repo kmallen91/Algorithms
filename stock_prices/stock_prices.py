@@ -14,7 +14,6 @@ def find_max_profit(prices):
             b += 1
         if b > (len(prices) - 1):
             a += 1
-            i += 1
             b = a + 1
         else:
             pass
