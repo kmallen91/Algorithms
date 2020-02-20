@@ -7,17 +7,21 @@ import sys
 # recursive solution
 
 
-def eating_cookies(n, cache=None):
+def eating_cookies(n, cache={}):
     # base case if n = 0, return 0
 
-    if n == 2:
-        return eating_cookies(n-2) + eating_cookies(n-1)
-    elif n == 1:
-        return eating_cookies(n-1)
+    if n < 0:
+        return 0
     elif n == 0:
         return 1
+    elif cache and cache[n] > 0:
+        return cache[n]
     else:
-        return eating_cookies(n-3) + eating_cookies(n-2) + eating_cookies(n-1)
+        if n not in cache:
+            cache = {i: 0 for i in range(n+1)}
+        cache[n] = eating_cookies(
+            n-3, cache) + eating_cookies(n-2, cache) + eating_cookies(n-1, cache)
+        return cache[n]
 
 
 print(eating_cookies(10))
