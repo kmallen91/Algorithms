@@ -8,24 +8,24 @@ import sys
 
 
 def eating_cookies(n, cache=None):
-    cookies = [1, 2, 3]
     # base case if n = 0, return 0
-    if n > 2:
-        return eating_cookies(n-3) + eating_cookies(n-2) + eating_cookies(n-1)
-    elif n > 1:
+
+    if n == 2:
         return eating_cookies(n-2) + eating_cookies(n-1)
-    elif n > 0:
+    elif n == 1:
         return eating_cookies(n-1)
+    elif n == 0:
+        return 1
     else:
-        pass
-    return n
+        return eating_cookies(n-3) + eating_cookies(n-2) + eating_cookies(n-1)
+
     # cycle through actions and subtract n by each action
     # once not divisible by 3, divide by 2, etc, then subtract 1 until 0
     # increment counter
     # return counter
 
 
-print(eating_cookies(4))
+print(eating_cookies(10))
 
 if __name__ == "__main__":
     if len(sys.argv) > 1:
